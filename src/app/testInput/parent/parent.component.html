@@ -1,0 +1,22 @@
+<form #fd="ngForm" (ngSubmit)="startSending()">
+  <input type="text" name="name" [(ngModel)]="user.name" />
+  <input type="text" name="surname" [(ngModel)]="user.surname" />
+  <input type="number" name="age" [(ngModel)]="user.age" />
+  <input type="text" name="gender" [(ngModel)]="user.gender" />
+  <button type="submit">Ok</button>
+</form>
+
+<!-- <app-enfant
+  [name]="user.name"
+  [surname]="user.surname"
+  [age]="user.age"
+  [gender]="user.gender"
+></app-enfant> -->
+
+<app-enfant
+  [name]="user.name"
+  [surname]="user.surname"
+  [age]="user.age"
+  [gender]="user.gender"
+  [send]="send"
+></app-enfant>

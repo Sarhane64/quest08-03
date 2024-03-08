@@ -1,0 +1,73 @@
+<form
+  [formGroup]="signUpForm"
+  (ngSubmit)="form.valid && onSubmit()"
+  #form="ngForm"
+>
+  <!-- ////////////////////////////////FIRSTNAME///////////////////////////////// -->
+  <label for="firstname">Prénom:</label>
+  <input id="firstname" formControlName="firstname" type="text" />
+
+  <div *ngIf="signUpForm.controls.firstname.errors">
+    <span
+      *ngIf="signUpForm.controls.firstname.get('firstname')?.errors?.['required']"
+      >Error min 2 caractère</span
+    >
+  </div>
+
+  <!-- /////////////LASTNAME//////////////////////////////////// -->
+
+  <label for="lastname">Nom de famille:</label>
+  <input id="lastname" formControlName="lastname" type="text" />
+
+  <div *ngIf="signUpForm.controls.lastname.errors">
+    <span
+      *ngIf="signUpForm.controls.lastname.get('lastname')?.errors?.['required']"
+      >Error min 2 caractère</span
+    >
+  </div>
+
+  <!-- //////////////////////////////////////////////////////////////////////// -->
+  <label for="email">Email:</label>
+  <input id="email" formControlName="email" type="email" />
+  <!-- //////////////////////////////////////////////////////////////////////// -->
+
+  <div class="adressgroup" formGroupName="adress">
+    <label for="street">Street</label>
+    <input type="text" id="street" formControlName="street" />
+
+    <label for="city">City</label>
+    <input type="text" id="city" formControlName="city" />
+
+    <label for="state">State</label>
+    <input type="text" id="state" formControlName="state" />
+
+    <label for="zip">Zip</label>
+    <input type="number" id="zip" formControlName="zip" />
+  </div>
+
+  <div class="passwordgroup" formGroupName="passwords">
+    <label for="password">Mot de passe:</label>
+    <input id="password" formControlName="password" type="password" />
+
+    <label for="confirmpassword">Confirmation du mot de passe:</label>
+    <input
+      id="confirmpassword"
+      formControlName="confirmPassword"
+      type="password"
+    />
+
+    <div *ngIf="form.submitted && signUpForm.controls.passwords.invalid">
+      <span *ngIf="signUpForm.controls.passwords.errors?.['not_valid']"
+        >Les mot de passe ne sont pas identiques</span
+      >
+    </div>
+    <div *ngIf="signUpForm.controls.passwords.get('password')?.errors">
+      <span
+        *ngIf="signUpForm.controls.passwords.get('password')?.errors?.['required']"
+        >Le champ doit faire minimum 5 caractere</span
+      >
+    </div>
+  </div>
+
+  <button type="submit">Envoyer</button>
+</form>

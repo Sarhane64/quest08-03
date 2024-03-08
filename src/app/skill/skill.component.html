@@ -1,0 +1,10 @@
+<main>
+  <div *ngIf="name && logo && site; else rien">
+    <p>Name : {{ name }}</p>
+    <img [src]="logo" />
+    <p>Site : {{ site }}</p>
+  </div>
+</main>
+<ng-template #rien>
+  <div>Rien a afficher</div>
+</ng-template>

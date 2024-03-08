@@ -1,0 +1,12 @@
+<div *ngIf="send && name && surname && age && gender; else noUser">
+  <ul>
+    <li>{{ name }}</li>
+    <li>{{ surname }}</li>
+    <li>{{ age }}</li>
+    <li>{{ gender }}</li>
+  </ul>
+</div>
+
+<ng-template #noUser>
+  <div>Pas de User</div>
+</ng-template>

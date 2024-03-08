@@ -1,0 +1,12 @@
+form {
+  display: flex;
+  flex-direction: column;
+}
+.adresse {
+  display: flex;
+  flex-direction: column;
+}
+.pass {
+  display: flex;
+  flex-direction: column;
+}
